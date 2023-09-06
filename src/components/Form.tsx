@@ -11,6 +11,7 @@ export const Form = ({ onChange }: FormProps) => {
   const API_KEY = "c38196957619ead2e5a891ff07fb6b6b";
 
   const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   const [country, setCountry] = useState("");
 
   const [formData, setFormData] = useState<WeatherFormData | null>(null);
@@ -26,7 +27,7 @@ export const Form = ({ onChange }: FormProps) => {
   useEffect(() => {
     if (formData) {
       fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${city},${state},${country}&appid=${API_KEY}&units=imperial`,
       )
         .then((response) => response.json())
         .then((data) => {
@@ -55,14 +56,20 @@ export const Form = ({ onChange }: FormProps) => {
 
   return (
     <form
-      className="flex flex-col items-center justify-center gap-8 lg:flex-row lg:items-end"
+      className="flex flex-col items-center justify-center gap-8 2xl:flex-row 2xl:items-end"
       onSubmit={handleSubmit}
     >
-      <div className="flex w-full flex-col gap-8 sm:flex-row">
+      <div className="grid w-full flex-col gap-8 sm:grid-cols-2 md:grid-cols-4">
         <FormInput
           field="city"
           value={city}
           onChange={(event: any) => setCity(event.target.value)}
+          className="sm:col-span-2"
+        />
+        <FormInput
+          field="state"
+          value={state}
+          onChange={(event: any) => setState(event.target.value)}
         />
         <FormInput
           field="country"
@@ -71,7 +78,7 @@ export const Form = ({ onChange }: FormProps) => {
         />
       </div>
       <div>
-        <Button type="submit" disabled={!city || !country}>
+        <Button type="submit" disabled={!city}>
           Submit
         </Button>
       </div>

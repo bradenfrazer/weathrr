@@ -1,6 +1,7 @@
 export type WeatherFormData = {
   city: string;
-  country: string;
+  state?: string;
+  country?: string;
 };
 
 export type WeatherData = {

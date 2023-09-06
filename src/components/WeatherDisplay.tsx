@@ -16,10 +16,8 @@ export const WeatherDisplay = ({ data }: WeatherDisplayProps) => {
     <div className="flex flex-1 items-center justify-center">
       <div className="grid gap-8 text-center">
         <div className="grid gap-2">
-          <p className="flex items-end justify-center gap-2">
-            <span className="text-3xl font-semibold">{data.city},</span>
-            <span className="text-lg">{data.country}</span>
-          </p>
+          <p className="text-3xl font-semibold">{data.city}</p>
+
           <p className="text-slate-50/50">{capitalize(data.condition)}</p>
         </div>
         <div className="grid gap-2">

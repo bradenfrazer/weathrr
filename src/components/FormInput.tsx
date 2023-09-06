@@ -6,11 +6,17 @@ interface FormInputProps {
   field: string;
   value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  className?: string;
 }
 
-export const FormInput = ({ field, value, onChange }: FormInputProps) => {
+export const FormInput = ({
+  field,
+  value,
+  onChange,
+  className,
+}: FormInputProps) => {
   return (
-    <div className="flex flex-col gap-2 sm:flex-1">
+    <div className={`flex w-full flex-col gap-2 ${className ?? ""}`}>
       <Label htmlFor={field}>{capitalize(field)}</Label>
       <Input name={field} value={value} onChange={onChange} />
     </div>
