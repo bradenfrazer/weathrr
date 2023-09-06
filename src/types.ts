@@ -21,3 +21,11 @@ export type WeatherData = {
   };
   visibility: number;
 };
+
+export type TemperatureDescription =
+  | "freezing"
+  | "cold"
+  | "chilly"
+  | "fair"
+  | "hot"
+  | "scorching";
