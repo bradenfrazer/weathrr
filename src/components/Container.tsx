@@ -6,7 +6,7 @@ interface ContainerProps {
 export const Container = ({ children, className }: ContainerProps) => {
   return (
     <div
-      className={`p-4 sm:flex sm:h-full sm:flex-col sm:items-center sm:justify-center sm:gap-4 sm:p-8 ${
+      className={`p-8 md:flex md:h-full md:flex-col md:items-center md:justify-center md:p-12 ${
         className ? className : ""
       }`}
     >
