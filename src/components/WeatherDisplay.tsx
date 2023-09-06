@@ -1,7 +1,15 @@
-export const WeatherDisplay = () => {
+import { WeatherData } from "../types";
+
+interface WeatherDisplayProps {
+  data: WeatherData;
+}
+
+export const WeatherDisplay = ({ data }: WeatherDisplayProps) => {
   return (
     <div className="flex flex-1 items-center justify-center">
-      <p>Weather info here</p>
+      <p>City: {data.city}</p>
+      <p>Country: {data.country}</p>
+      <p>Temp: {data.temperature.toString()}</p>
     </div>
   );
 };
