@@ -6,5 +6,18 @@ export type WeatherFormData = {
 export type WeatherData = {
   city: string;
   country: string;
-  temperature: number;
+  temperature: {
+    current: number;
+    high: number;
+    low: number;
+    feels_like: number;
+  };
+  condition: string;
+  humidity: number;
+  pressure: number;
+  wind: {
+    deg: number;
+    speed: number;
+  };
+  visibility: number;
 };

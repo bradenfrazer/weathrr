@@ -30,10 +30,24 @@ export const Form = ({ onChange }: FormProps) => {
       )
         .then((response) => response.json())
         .then((data) => {
+          console.log(data);
           onChange({
             city: data.name,
             country: data.sys.country,
-            temperature: data.main.temp,
+            temperature: {
+              current: data.main.temp,
+              high: data.main.temp_max,
+              low: data.main.temp_min,
+              feels_like: data.main.feels_like,
+            },
+            condition: data.weather[0].description,
+            humidity: data.main.humidity,
+            pressure: data.main.pressure,
+            wind: {
+              deg: data.wind.deg,
+              speed: data.wind.speed,
+            },
+            visibility: data.visibility,
           });
         });
     }
