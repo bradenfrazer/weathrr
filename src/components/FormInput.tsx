@@ -10,7 +10,7 @@ interface FormInputProps {
 
 export const FormInput = ({ field, value, onChange }: FormInputProps) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 sm:flex-1">
       <Label htmlFor={field}>{capitalize(field)}</Label>
       <Input name={field} value={value} onChange={onChange} />
     </div>

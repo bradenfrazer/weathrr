@@ -29,11 +29,11 @@ export const WeatherDisplay = ({ data }: WeatherDisplayProps) => {
             </span>
             <span className="text-4xl">F</span>
           </p>
-          <p className="flex justify-center gap-4 text-slate-50/50">
+          <p className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-slate-50/50 sm:gap-4">
             <span>Low {formatTemp(data.temperature.low)}</span>
-            <span>•</span>
+            <span className="hidden sm:block">•</span>
             <span>High {formatTemp(data.temperature.high)}</span>
-            <span>•</span>
+            <span className="hidden sm:block">•</span>
             <span>Feels like {formatTemp(data.temperature.feels_like)}</span>
           </p>
         </div>

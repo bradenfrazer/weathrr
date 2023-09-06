@@ -55,7 +55,7 @@ export const Form = ({ onChange }: FormProps) => {
 
   return (
     <form
-      className="flex flex-1 flex-col items-center justify-center gap-8 xl:flex-row xl:items-end"
+      className="flex flex-col items-center justify-center gap-8 lg:flex-row lg:items-end"
       onSubmit={handleSubmit}
     >
       <div className="flex w-full flex-col gap-8 sm:flex-row">
