@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import { FormInput } from "./FormInput";
 import { Button } from "./ui/Button";
 import { WeatherData, WeatherFormData } from "../types";
+import { WEATHER_API_KEY } from "../../apikey.ts";
 
 interface FormProps {
   onChange: (args: WeatherData) => void;
 }
 
 export const Form = ({ onChange }: FormProps) => {
-  const API_KEY = "c38196957619ead2e5a891ff07fb6b6b";
-
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
@@ -27,7 +26,7 @@ export const Form = ({ onChange }: FormProps) => {
   useEffect(() => {
     if (formData) {
       fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city},${state},${country}&appid=${API_KEY}&units=imperial`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${city},${state},${country}&appid=${WEATHER_API_KEY}&units=imperial`,
       )
         .then((response) => response.json())
         .then((data) => {
